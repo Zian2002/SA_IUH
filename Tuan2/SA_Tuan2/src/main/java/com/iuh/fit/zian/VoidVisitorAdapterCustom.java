@@ -5,6 +5,7 @@ import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.PackageDeclaration;
 import com.github.javaparser.ast.body.*;
+import com.github.javaparser.ast.comments.Comment;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 import java.io.IOException;
@@ -80,18 +81,16 @@ public class VoidVisitorAdapterCustom extends VoidVisitorAdapter<Object> {
         String comment = n.getComment().toString();
         if (comment.isEmpty()){
             System.out.print(n.getBegin().get().toString() + " ");
-            System.out.println("Class [" + name + "] lacks comment");
+            System.out.println("Class [" + name + "] lacks of comment");
         }else {
             requiredComments.forEach(required -> {
                 if (!comment.contains(required)) {
                     System.out.print(n.getBegin().get().toString() + " ");
-                    System.out.println("Class [" + name + "] lacks " + required);
+                    System.out.println("Class [" + name + "] lacks of " + required);
                 }
             });
         }
     }
-
-
 
     @Override
     public void visit(FieldDeclaration n, Object arg) {
@@ -113,30 +112,41 @@ public class VoidVisitorAdapterCustom extends VoidVisitorAdapter<Object> {
                 System.out.println("Field [" + variableDeclarator.getName() + "] is not a noun");
             }
 
-
-
-//            System.out.println("jhgakjhsdgakjdhaklj " + variableDeclarator.get);
-
-
             if (!Utils.isCamelCase(variableDeclarator.getNameAsString())){
                 System.out.print(variableDeclarator.getBegin().get() + " ");
                 System.out.println("Field [" + variableDeclarator.getName() + "] does not follow the correct pattern");
             }
-
         }
-
     }
 
     @Override
     public void visit(MethodDeclaration n, Object arg) {
         super.visit(n, arg);
+        List<String> ignores = List.of("equals", "toString", "hashCode");
         String name = n.getNameAsString();
-
+        if (ignores.contains(name))
+            return;
         String firstWord = Utils.splipByUpperCase(name).get(0);
         if (!dictionary.isVerb(firstWord)){
             System.out.print(n.getBegin().get().toString() + " ");
             System.out.println("Method [" + name + "] not start with a Verb");
         }
+        Comment comment = n.getComment().orElse(null);
+        if (comment == null) {
+            System.out.print(n.getBegin().get().toString() + " ");
+            System.out.println("Method [" + name + "] lacks of comment");
+        }
+
     }
 
+    @Override
+    public void visit(ConstructorDeclaration n, Object arg) {
+        super.visit(n, arg);
+        if (n.getParameters().isEmpty()) return;
+        Comment comment = n.getComment().orElse(null);
+        if (comment == null) {
+            System.out.print(n.getBegin().get().toString() + " ");
+            System.out.println("Constructor with parameters [" + n.getNameAsString() + "] lacks of comment");
+        }
+    }
 }

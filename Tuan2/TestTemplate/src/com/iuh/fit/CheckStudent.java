@@ -7,4 +7,9 @@ package com.iuh.fit;
 public class CheckStudent {
     private static String staticField;
 
+    private Student student;
+
+    public CheckStudent(Student student) {
+        this.student = student;
+    }
 }
