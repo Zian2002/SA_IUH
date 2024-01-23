@@ -1,20 +1,21 @@
-Sử dụng en-pos-maxent.bin kết hợp
+Sử dụng en-pos-maxent.bin kết hợp với
 <!-- https://mvnrepository.com/artifact/org.apache.opennlp/opennlp-tools -->
 <dependency>
     <groupId>org.apache.opennlp</groupId>
     <artifactId>opennlp-tools</artifactId>
     <version>2.3.1</version>
 </dependency>
-Thư viện xử lý ngôn ngữ tự nhiên (NLP) Apache OpenNLP
-- kiểm tra từ có thuộc tag Verb(VB), Noun(NN) hay không
 
-* Thư viện không đảm bảo dộ chính xác 100%*
-  
+ - Thư viện xử lý ngôn ngữ tự nhiên (NLP) Apache OpenNLP dùng để kiểm tra từ có thuộc tag Verb(VB), Noun(NN) hay không
 
-![image](https://github.com/Zian2002/SA_IUH/assets/108822757/314ba0c9-6386-419d-a4f2-edb167bf1b2f)
+*** Lưu ý: Thư viện không đảm bảo dộ chính xác 100%
 
-![image](https://github.com/Zian2002/SA_IUH/assets/108822757/aba87ba3-15e7-4efb-9a53-dacc04c153a0)
+  ![image](https://github.com/Zian2002/SA_IUH/assets/108822757/ffea2eff-4914-4e5c-a0ed-b4f4b66b54e0)
 
-![image](https://github.com/Zian2002/SA_IUH/assets/108822757/4cba876c-7b89-4fee-88c0-a29d70e2a390)
+  ![image](https://github.com/Zian2002/SA_IUH/assets/108822757/90cb0431-46e5-4560-ae15-847d93c63832)
 
-![image](https://github.com/Zian2002/SA_IUH/assets/108822757/27dff7a8-3f82-4b87-b58a-b4e0acebbec3)
+  ![image](https://github.com/Zian2002/SA_IUH/assets/108822757/5b6d51d0-9c1d-4966-a311-73e21fe8ec93)
+
+  ![image](https://github.com/Zian2002/SA_IUH/assets/108822757/2c747325-caff-4bff-bcbb-592b38f8a2f3)
+
+
