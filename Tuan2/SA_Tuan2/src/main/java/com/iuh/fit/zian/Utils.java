@@ -15,7 +15,7 @@ public class Utils {
                 currentUppercase = i;
             }
         }
-        currentWord = input.substring(currentUppercase, input.length());
+        currentWord = input.substring(currentUppercase);
         result.add(currentWord);
         return result;
     }

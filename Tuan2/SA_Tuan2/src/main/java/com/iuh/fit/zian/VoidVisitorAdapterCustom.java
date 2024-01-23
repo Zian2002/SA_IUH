@@ -24,10 +24,7 @@ public class VoidVisitorAdapterCustom extends VoidVisitorAdapter<Object> {
         this.dictionary = dictionary;
     }
 
-    public VoidVisitorAdapterCustom() throws IOException {
-        this.dictionary = new Dictionary();
-        this.patternPackage = "com.companyname.";
-        this.requiredComments = List.of("@author", "created-date");
+    public VoidVisitorAdapterCustom() {
     }
 
     public String getPatternPackage() {
@@ -98,8 +95,8 @@ public class VoidVisitorAdapterCustom extends VoidVisitorAdapter<Object> {
         NodeList<VariableDeclarator> variableDeclarators = n.getVariables();
         NodeList<Modifier> modifiers = n.getModifiers();
         if (modifiers.contains(Modifier.staticModifier())){
-            Node parentNode = parentNode = n.getParentNode().get();
-            ClassOrInterfaceDeclaration classDeclaration = classDeclaration = (ClassOrInterfaceDeclaration) parentNode;
+            Node parentNode = n.getParentNode().get();
+            ClassOrInterfaceDeclaration classDeclaration = (ClassOrInterfaceDeclaration) parentNode;
             if (!classDeclaration.isInterface()){
                 System.out.print(n.getBegin().get() + " ");
                 System.out.println("Static variable " + variableDeclarators.toString() + " should be placed within the Interface");
