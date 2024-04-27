@@ -20,7 +20,7 @@ public class EmailTemplate {
                         "        </tr>\n" :
 
                 "        <tr>\n" +
-                        "            <td><strong>Đơn hàng bị hủy</strong></td>\n" +
+                        "            <td><strong>Thông tin chi tiết</strong></td>\n" +
                         "            <td>"+ "Số lượng trong kho không đủ"+"</td>\n" +
                         "        </tr>\n" ;
 
@@ -84,7 +84,7 @@ public class EmailTemplate {
                 "        </tr>\n" +
                 "\n" +
                 "        <tr>\n" +
-                "            <td><strong>Ngày đặt:</strong></td>\n" +
+                "            <td><strong>Số luọng:</strong></td>\n" +
                 "            <td>"+order.getQuantity()+"</td>\n" +
                 "        </tr>\n" +
                 "\n" +

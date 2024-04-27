@@ -13,6 +13,7 @@ import com.edu.iuh.fit.ms.utils.EmailTemplate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -37,6 +38,7 @@ public class OrderServiceImpl implements OrderService {
                 .email(request.getEmail())
                 .customerName(request.getCustomerName())
                 .address(request.getAddress())
+                .createdAt(LocalDateTime.now())
                 .product(product)
                 .quantity(request.getQuantity())
                 .build();

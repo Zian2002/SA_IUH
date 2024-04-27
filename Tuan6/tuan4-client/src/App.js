@@ -85,7 +85,9 @@ function App() {
                         const encoded = btoa(JSON.stringify(data));
 
                         Axios.post("http://localhost:8081/order", encoded);
-                        alert("Đơn hàng đang được xử lý. Vui lòng kiểm tra email");
+                        alert(
+                          "Đơn hàng đang được xử lý. Vui lòng kiểm tra email"
+                        );
                       }}
                     >
                       Buy
@@ -98,6 +100,7 @@ function App() {
         </table>
       </div>
       <div className="w-[30%]">
+        <h2 className="text-xl mb-4 font-bold">Thông tin khách hàng</h2>
         <div className="w-full">
           Email :
           <input
@@ -135,6 +138,7 @@ function App() {
           />
         </div>
       </div>
+      .
     </div>
   );
 }
